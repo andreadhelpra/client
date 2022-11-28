@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./IdoList.css";
-import Table from 'react-bootstrap/Table';
-
+import purple_sphere from "./images/purple-sphere.png"
+import transparent_sphere from "./images/transparent_sphere.png"
 
 
 function IdoList() {
@@ -24,11 +24,14 @@ function IdoList() {
       useEffect(() => {
         fetchData();
       }, []);
-    
+      
+      <style>@import url('https://fonts.cdnfonts.com/css/lemonmilk');</style>  
+
       return (
         <div className="list">
-          <tbody class ="table">
-            <tr class="headings">
+          <tbody className="table">
+            <tr className="headings">
+              <th></th>
               <th>Name</th>
               <th>Price</th>
               <th>Public maximum allocation</th>
@@ -37,11 +40,17 @@ function IdoList() {
             </tr>
             {data.map((item, index) => (
               <tr key={index} class="tablebody">
-                <td>{item.name}</td>
+                 <td><img src={transparent_sphere} className="transparent_sphere"/></td>
+                <th className="smallheading">Name</th>
+                <td className="name">{item.name}</td>
+                <th className="smallheading">Price</th>
                 <td>{item.price}</td>
+                <th className="smallheading">Public maximum allocation</th>
                 <td>{item.max_allocation_pub}</td>
-                <a><td>{item.max_allocation_pvt}</td></a>
-                <td>{item.source}</td>
+                <th className="smallheading">Private maximum allocation</th>
+                <td>{item.max_allocation_pvt}</td>
+                <th className="smallheading">Source</th>
+                <td><a href={item.source}>{item.source}</a></td>
               </tr>
             ))}
           </tbody>

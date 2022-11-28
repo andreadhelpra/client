@@ -6,6 +6,25 @@
   justify-content: center;
 }
 
+.App-title{
+  font-family: 'Lemon/Milk', sans-serif;
+  text-transform: uppercase;
+}
+
+.headings{
+  border-bottom: 1px solid black;
+}
+
+.App-heading{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 30px
+}
+.sphere{
+  max-width: 60px;
+  margin: 10px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
