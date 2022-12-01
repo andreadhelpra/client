@@ -29,14 +29,28 @@ function IdoList() {
         fetchData();
       }, []);
 
-  
+      
+      useEffect(() =>{
+        if (localStorage.getItem('datakey') === undefined || localStorage.getItem('datakey').length == 0){
+          localStorage.setItem('datakey', JSON.stringify(data));
+        }
+      }, [data]);
+      
+
+      
       useEffect(() => {
-        setFilteredData( data.filter((ido) => {
-          return (ido.name.toLowerCase().includes(searchInput.toLowerCase()) 
-          || ido.source.toLowerCase().includes(searchInput.toLowerCase()) );
-        }, [data, searchInput]));
+        const items = JSON.parse(localStorage.getItem('datakey'));
+        if (items){
+          setFilteredData( 
+            items.filter((ido) => {
+            return (ido.name.toLowerCase().includes(searchInput.toLowerCase()) 
+            || ido.source.toLowerCase().includes(searchInput.toLowerCase()) );
+          }, [items, searchInput]));
+        }
       });
 
+     
+      // Add Styles
       <style>@import url('https://fonts.cdnfonts.com/css/lemonmilk');</style>    
 
       let searchIcon;
@@ -47,6 +61,8 @@ function IdoList() {
         searchIcon = <span className="icon"><CiSearch/></span>
       }
 
+
+      // Add HTML
       return (
         <div className="list">
           <div className="searchbar">
