@@ -92,6 +92,8 @@ td{
 
 .list{
   margin-bottom: 40px;
+  margin-left:20px ;
+  margin-right:20px;
   border: 1px solid rgb(202, 202, 202);
   border-radius: 8px;
   box-shadow: 0 0 3px #b4b4b4;
@@ -102,7 +104,7 @@ td{
   font-family: 'Lemon/Milk', sans-serif;
   text-transform: uppercase;
 }
-.transparent_sphere{
+.purple_sphere{
   max-width: 30px;
   position:relative;
   right:80%;
@@ -133,7 +135,7 @@ td{
       display: contents;
       color: rgb(148, 148, 148);
   }
-  .transparent_sphere{
+  .purple_sphere{
       right:0;
       position: relative;
       max-width: 50px;

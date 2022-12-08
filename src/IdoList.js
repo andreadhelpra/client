@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import transparent_sphere from "./images/transparent_sphere.png"
+import purple_sphere from "./images/purple-sphere.png"
 import {CiSearch} from "react-icons/ci";
 
 function IdoList() {
@@ -31,7 +31,7 @@ function IdoList() {
 
       
       useEffect(() =>{
-        if (localStorage.getItem('datakey') === undefined || localStorage.getItem('datakey').length == 0){
+        if (localStorage.getItem('datakey') == null || localStorage.getItem('datakey').length == 2){
           localStorage.setItem('datakey', JSON.stringify(data));
         }
       }, [data]);
@@ -85,7 +85,7 @@ function IdoList() {
             </tr>
             {filteredData.map((ido, index) => (
               <tr key={index} class="tablebody">
-                 <td><img src={transparent_sphere} className="transparent_sphere"/></td>
+                 <td><img src={purple_sphere} className="purple_sphere"/></td>
                 <th className="smallheading">Name</th>
                 <td className="name">{ido.name}</td>
                 <th className="smallheading">Price</th>
